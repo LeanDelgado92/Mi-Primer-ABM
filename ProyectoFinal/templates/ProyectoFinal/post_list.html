@@ -1,0 +1,22 @@
+{% extends 'ProyectoFinal/base.html' %}
+
+{% block contenido %}
+{% if user.is_authenticated %}
+    <a href = "{% url 'ProyectoFinal-Crear' %}">Crear Post</a>
+    <a href = "{% url 'ProyectoFinal-Avatars-Actualizar' user.id %}">Actualizar Avatar</a>
+    <a href = "{% url 'ProyectoFinal-User-Actualizar' user.id %}">Actualizar Perfil</a>
+    <a href = "{% url 'ProyectoFinal-Mensajes-Listar' %}">Mensajes</a>
+{% endif %}
+<ul>
+{% for post in object_list %}
+    <li>
+        {{post.publicado_el}} - - {{post.titulo}}
+        {% if user.is_authenticated %}
+            <a href = "{% url 'ProyectoFinal-Borrar' post.id %}">Borrar</a>
+            <a href = "{% url 'ProyectoFinal-Actualizar' post.id %}">Actualizar</a>
+            {% endif %}
+            <a href = "{% url 'ProyectoFinal-Detalle' post.id %}">Ver</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

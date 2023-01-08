@@ -1,0 +1,13 @@
+{% extends 'ProyectoFinal/base.html' %}
+
+{% block contenido %}
+    
+    <h2>{{object.nombre}}</h2>
+    <h2>{{object.email}}</h2>
+    <h2>{{object.enviado_el}}</h2>
+   
+    <div>
+        {{object.texto}}
+    </div>
+      
+{% endblock %}
