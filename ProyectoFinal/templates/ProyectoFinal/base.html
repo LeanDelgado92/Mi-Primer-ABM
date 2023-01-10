@@ -19,25 +19,30 @@
                 <a class="navbar-brand" href="{% url 'ProyectoFinal-Index' %}">
                     <img src = "{{ user.avatar.imagen.url }}" height = "64">
                     {% if user.is_authenticated %}
-                        Hola, {{user.first_name}} 
+                        Hola {{user.first_name}} 
                     {% endif %}
                     
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'ProyectoFinal-Index' %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Acerca</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'ProyectoFinal-Mensajes-Crear' %}">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'ProyectoFinal-SignUp' %}">Registrarse</a></li>
                         
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link" href="{% url 'ProyectoFinal-Listar' %}">Admin Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'ProyectoFinal-Index' %}">Inicio</a></li>
+                                {% if user.is_superuser %}
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'ProyectoFinal-Listar' %}">Admin Blog</a></li>
+                                {% else %}
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'ProyectoFinal-Listar' %}">Usuario Blog</a></li>
+                                {% endif %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'ProyectoFinal-Mensajes-Crear' %}">Contacto</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'ProyectoFinal-Logout' %}">Salir</a></li>
                         {% else %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'ProyectoFinal-Login' %}">Ingresar</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'ProyectoFinal-SignUp' %}">Registrarse</a></li>
                         {% endif %}
                         
+                        <li class="nav-item"><a class="nav-link" href="#!">Acerca</a></li>
+
                     </ul>
                 </div>
             </div>

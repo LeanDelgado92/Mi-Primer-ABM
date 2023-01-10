@@ -72,3 +72,6 @@ class MensajeCrear (LoginRequiredMixin, CreateView):
 class MensajeBorrar (LoginRequiredMixin, DeleteView):
     model = Mensaje
     success_url = reverse_lazy ('ProyectoFinal-Mensajes-Listar')
+    
+
+    

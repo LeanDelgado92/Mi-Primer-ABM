@@ -41,6 +41,7 @@ urlpatterns = [
     path('ProyectoFinal/mensajes/listar/', MensajeListar.as_view(), name = "ProyectoFinal-Mensajes-Listar"),
     path('ProyectoFinal/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name = "ProyectoFinal-Mensajes-Detalle"),
     path('ProyectoFinal/mensajes/<int:pk>/borrar/', MensajeBorrar.as_view(), name = "ProyectoFinal-Mensajes-Borrar"),
+   
 ]
 
 urlpatterns += static (settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
