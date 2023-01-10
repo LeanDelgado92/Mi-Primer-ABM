@@ -45,7 +45,7 @@ class UserLogin (LoginView):
     next_page = reverse_lazy ('ProyectoFinal-Listar')
     
 class UserLogout (LogoutView):
-    next_page = reverse_lazy ('ProyectoFinal-Listar')
+    next_page = reverse_lazy ('ProyectoFinal-Index')
     
 class AvatarActualizar (UpdateView):
     model = Avatar
